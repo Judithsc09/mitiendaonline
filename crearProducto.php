@@ -1,3 +1,10 @@
+
+<?php
+
+Require "validacion.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,13 +57,13 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-    </style>
+</style>
 
     
 </head>
 <body>
     <h1>Crear Producto</h1>
-    <form>
+    <form action="crearProducto.php" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
         <label for="precio">Precio:</label>
@@ -68,17 +75,22 @@
         <input type="submit" value="Enviar">
     </form>
    
-        <?php
+   
+   <?php
 
 
-        Require "validacion.php";
-        if(!empty($_POST))
-        validacionCrear()
+   
+    if(!empty($_POST))
+    validacionCrear()
 
 
         ?>
 
 
 
+
 </body>
+
+
+
 </html>
