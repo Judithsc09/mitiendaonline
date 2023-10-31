@@ -1,11 +1,24 @@
+
+<?php
+
+Require "validacion.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mi tienda online</title>
+
 </head>
 <body>
+
+
+
+
+
 <style>
     body {
             font-family: Arial, sans-serif;
@@ -44,25 +57,13 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-    </style>
+</style>
 
-
+    
 </head>
 <body>
-    
-
-        <?php
-
-
-        require "validacion.php";
-
-
-        ?>
-
-
-
     <h1>Crear Producto</h1>
-    <form>
+    <form action="crearProducto.php" method="post">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
         <label for="precio">Precio:</label>
@@ -74,26 +75,22 @@
         <input type="submit" value="Enviar">
     </form>
    
+   
+   <?php
 
 
-    <?php
-
-        //VALIDACIÓN
-
-
+   
+    if(!empty($_POST))
+    validacionCrear()
 
 
-
-
-
-
-
-    ?>
+        ?>
 
 
 
 
 </body>
-    
-</body>
+
+
+
 </html>
