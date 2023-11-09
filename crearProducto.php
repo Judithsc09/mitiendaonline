@@ -2,6 +2,20 @@
 <?php
 
 Require "validacion.php";
+$servername = "localhost";
+$username = "mitiendaonline";
+$password = "Judith09";
+$bd="mitiendaonline";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$bd", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "<br>Connected successfully";
+  } catch(PDOException $e) {
+    echo "<br> Connection failed: " . $e->getMessage();
+  }
+     
 
 ?>
 
@@ -72,7 +86,14 @@ Require "validacion.php";
         <label for="imagen">Fichero:</label>
         <input type="file" name="imagen" id="imagen">
         <label for="categoria">Categoría:</label>
-        <input type="select" name="categoria" id="categoria">
+        <?php
+        
+        $sentencia= $conn->prepare("select * from categorías ");
+        $sentencia->execute();
+        $fila=$sentencia->fetch(PDO::FETCH_ASSOC);
+        
+        ?>
+        <input type="radio" name="categoria" id="categoria">
         <br><input type="submit" value="Enviar"></br>
     </form>
    
@@ -81,25 +102,6 @@ Require "validacion.php";
     if(!empty($_POST))
     validacionCrear()
     ?>
-
-
-<?php
-
-$servername = "localhost";
-$username = "mitiendaonline";
-$password = "Judith09";
-$bd="mitiendaonline";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$bd", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "<br>Connected successfully";
-  } catch(PDOException $e) {
-    echo "<br> Connection failed: " . $e->getMessage();
-  }
-      
-?>
 
 
 

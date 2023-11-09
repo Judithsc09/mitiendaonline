@@ -32,8 +32,10 @@ function validacionCrear()
     }
 
      if(subirFichero())
+     {
         $errores[] = "No se pudo subir el fichero";
-
+      
+     }
      else{
         echo " <br> Fichero : ". $_POST['imagen'];
     }
