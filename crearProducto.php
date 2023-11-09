@@ -69,7 +69,7 @@ Require "validacion.php";
         <input type="text" name="nombre" id="nombre">
         <label for="precio">Precio:</label>
         <input type="text" name="precio" id="precio">
-        <label for="imagen">Imagen:</label>
+        <label for="imagen">Fichero:</label>
         <input type="file" name="imagen" id="imagen">
         <label for="categoria">Categoría:</label>
         <input type="select" name="categoria" id="categoria">

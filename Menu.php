@@ -7,50 +7,56 @@
 </head>
 <body>
 
-
 <style>
 
-ul {
+
+#menu {
+  background-color: #333;
+  padding: 10px;
+}
+
+#menu ul {
   list-style-type: none;
-  text-align: center
+  padding: 0;
 }
 
-li {
-  background-color: #F6E3CA;
-  border: #D7C8B6 2px solid;
-  display: inline;
-  margin-right: 10px;
-
-
+#menu li {
+  margin-bottom: 10px;
 }
 
-a {
-  color: black;
-  padding: 0 30px;
+#menu a {
   text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  padding: 5px;
 }
 
-a:hover {
-  background-color: white;
-  color: #D7C8B6;
+#menu a:hover {
+  background-color: #007BFF;
 }
 
+    </style>
 
 
 
 
-</style>
+<div id="menu">
+   
+     <ul>
+        
+        <li><a href="crearProducto.php">Crear producto</a></li>
+        <li><a href="#">Consultar el listado de productos</a></li>
+        <li><a href="#">Modificar producto</a></li>
+        <li><a href="#">Eliminar producto</a></li>
+      
+
+    </ul>
+
+</div>
+
+   
 
 
-
-<ul>
-  <li><a href="crearProducto.php">Crear Producto</a></li>
-  <li><a href="#news">Consultar el listado de productos</a></li>
-  <li><a href="#contact">Modificar producto</a></li>
-  <li><a href="#about">Eliminar producto</a></li>
-</ul>
-
-
-
-
+</body>
 </html>

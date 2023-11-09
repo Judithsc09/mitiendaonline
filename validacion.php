@@ -46,10 +46,10 @@ function visualizacionErrores()
     global $errores;
 
     if (count($errores) == 0) {
-        echo "<br> No hubo ningún fallo ";
+        echo "<br> No hubo ningún fallo 👍  ";
     } else {
         $i = 1;
-        echo "<br>HAZ FALLADO, los fallos son:<br>";
+        echo "<br>HAZ FALLADO😢, los fallos son:<br>";
 
         foreach ($errores as &$salida) {
             echo $i . "- " . $salida . "<br>";
