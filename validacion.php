@@ -2,7 +2,7 @@
 
 $errores = array();
 $tieneNumeros = "/[0-9]/"; 
-$tieneLetras = "/[A-Z]/";
+$tieneLetras = "/[A-z]/";
 
 
 function soloLetras($name)
@@ -12,7 +12,7 @@ function soloLetras($name)
 }
 
 
-function validacionCrear()
+function validacionCrear($conn)
 {
     global $errores, $tieneLetras;
 
@@ -31,25 +31,39 @@ function validacionCrear()
         echo " <br> precio : " . $_POST['precio'];
     }
 
-     if(subirFichero())
-        $errores[] = "No se pudo subir el fichero";
-
+     if(!subirFichero())
+     {
+        $errores[] = "Hay que subir una imagen";
+      
+     }
      else{
-        echo " <br> Fichero : ". $_POST['imagen'];
+        echo " <br> Fichero : ". $_FILES['imagen']['name'];
     }
     
-    visualizacionErrores();
+    visualizacionErrores($conn);
 }
 
-function visualizacionErrores()
+function visualizacionErrores($conn)
 {
     global $errores;
 
     if (count($errores) == 0) {
-        echo "<br> No hubo ningún fallo ";
+        echo "<br> No hubo ningún fallo 👍  ";
+        $nombre = " ' ".$_POST['nombre']." ' ";
+        $precio = $_POST['precio'];
+        $imagen = " ' ".$_FILES['imagen']['name']." ' ";
+        $categoria = " ' ".$_POST['categoria']." ' ";
+
+        $sentencia= "INSERT INTO productos(Nombre,Precio,Imagen,Categoría) VALUES ($nombre,$precio,$imagen,$categoria) ";
+        if($conn->query($sentencia)==true){
+            echo "Salió todo bien";
+        }
+        else{
+            echo "Salió todo mal";
+        }
     } else {
         $i = 1;
-        echo "<br>HAZ FALLADO, los fallos son:<br>";
+        echo "<br>HAZ FALLADO😢, los fallos son:<br>";
 
         foreach ($errores as &$salida) {
             echo $i . "- " . $salida . "<br>";
@@ -61,11 +75,11 @@ function visualizacionErrores()
 function subirFichero()
     {
         $dir_fichero='./Tienda';
-        if(isset($_FILES["Tiendas"])){
+        if(isset($_FILES["imagen"])){
             
-            if($_FILES["Tiendas"]["error"]==UPLOAD_ERR_OK){
-                $tmp_name = $_FILES["Tiendas"]["tmp_name"];
-                $name = basename($_FILES["Tiendas"]["name"]);
+            if($_FILES["imagen"]["error"]==UPLOAD_ERR_OK){
+                $tmp_name = $_FILES["imagen"]["tmp_name"];
+                $name = basename($_FILES["imagen"]["name"]);
                 
                 move_uploaded_file($tmp_name,"$dir_fichero/$name");
                 return true;
@@ -73,6 +87,9 @@ function subirFichero()
         }
         return false;
     }
+
+
+
 
 
 ?>
