@@ -2,7 +2,7 @@
 
 $errores = array();
 $tieneNumeros = "/[0-9]/"; 
-$tieneLetras = "/[A-Z]/";
+$tieneLetras = "/[A-z]/";
 
 
 function soloLetras($name)
