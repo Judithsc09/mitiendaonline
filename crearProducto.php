@@ -86,9 +86,6 @@ Require "validacion.php";
 
         ?>
 
-
-
-
 </body>
 
 
