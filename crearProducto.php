@@ -91,7 +91,7 @@ try {
         $sentencia= $conn->prepare("select * from categorías ");
         $sentencia->execute();
         $fila=$sentencia->fetch(PDO::FETCH_ASSOC);
-        
+
         ?>
         <input type="radio" name="categoria" id="categoria">
         <br><input type="submit" value="Enviar"></br>
@@ -102,7 +102,6 @@ try {
     if(!empty($_POST))
     validacionCrear()
     ?>
-
 
 
 </body>
