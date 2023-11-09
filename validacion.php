@@ -11,30 +11,33 @@ function soloLetras($name)
     return preg_match($tieneNumeros, $_POST[$name]); 
 }
 
+
 function validacionCrear()
 {
     global $errores, $tieneLetras;
 
     if (soloLetras('nombre'))
         $errores[] = "El nombre solo debe incluir letras";
+    else
+    {
+        echo " <br> Nombre : " . $_POST['nombre'];
+    }
     
 
     if (preg_match($tieneLetras, $_POST['precio'])) 
         $errores[] = "El precio tiene que ser válido";
 
+    else{
+        echo " <br> precio : " . $_POST['precio'];
+    }
+
      if(subirFichero())
         $errores[] = "No se pudo subir el fichero";
 
+     else{
+        echo " <br> Fichero : ". $_POST['imagen'];
+    }
     
-    
-
-    // Resultado Formulario
-    
-    echo " <br> Nombre : " . $_POST['nombre'];
-    echo " <br> precio : " . $_POST['precio'];
-    echo " <br> Fichero : ". $_POST['imagen'];
-
-
     visualizacionErrores();
 }
 
