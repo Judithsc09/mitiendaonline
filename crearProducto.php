@@ -77,13 +77,14 @@ try {
     
 </head>
 <body>
+
     <h1>Crear Producto</h1>
-    <form action="crearProducto.php" method="post">
+    <form action="crearProducto.php" method="post" enctype="multipart/form-data">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" id="nombre">
         <label for="precio">Precio:</label>
         <input type="text" name="precio" id="precio">
-        <label for="imagen">Fichero:</label>
+        <label for="imagen">Imagen:</label>
         <input type="file" name="imagen" id="imagen">
         <label for="categoria">Categoría:</label>
         <?php
@@ -92,15 +93,24 @@ try {
         $sentencia->execute();
         $fila=$sentencia->fetch(PDO::FETCH_ASSOC);
 
+        while($fila!=false)
+        {
+            echo " <input type='radio' name='categoria' value='".$fila['Id']."'>" .$fila['Nombre']." </input>";
+
+            $fila=$sentencia->fetch(PDO::FETCH_ASSOC);
+        }
+        $sentencia->execute();
+        $fila=$sentencia->fetch(PDO::FETCH_ASSOC);
+
         ?>
-        <input type="radio" name="categoria" id="categoria">
+       
         <br><input type="submit" value="Enviar"></br>
     </form>
    
    
    <?php
     if(!empty($_POST))
-    validacionCrear()
+    validacionCrear($conn)
     ?>
 
 
