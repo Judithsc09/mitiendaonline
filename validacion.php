@@ -4,6 +4,11 @@ $errores = array();
 $tieneNumeros = "/[0-9]/"; 
 $tieneLetras = "/[A-z]/";
 
+$servername = "localhost";
+$username = "mitiendaonline";
+$password = "Judith09";
+$bd="mitiendaonline";
+
 
 function soloLetras($name)
 {
@@ -49,10 +54,10 @@ function visualizacionErrores($conn)
 
     if (count($errores) == 0) {
         echo "<br> No hubo ningún fallo 👍  ";
-        $nombre = " ' ".$_POST['nombre']." ' ";
+        $nombre = "'".$_POST['nombre']."'";
         $precio = $_POST['precio'];
-        $imagen = " ' ".$_FILES['imagen']['name']." ' ";
-        $categoria = " ' ".$_POST['categoria']." ' ";
+        $imagen = "'".$_FILES['imagen']['name']."'";
+        $categoria = "'".$_POST['categoria']."'";
 
         $sentencia= "INSERT INTO productos(Nombre,Precio,Imagen,Categoría) VALUES ($nombre,$precio,$imagen,$categoria) ";
         if($conn->query($sentencia)==true){
