@@ -4,6 +4,10 @@ $errores = array();
 $tieneNumeros = "/[0-9]/"; 
 $tieneLetras = "/[A-z]/";
 
+$servername = "localhost";
+$username = "mitiendaonline";
+$password = "Judith09";
+$bd="mitiendaonline";
 
 function soloLetras($name)
 {
