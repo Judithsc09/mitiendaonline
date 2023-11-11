@@ -58,6 +58,7 @@ td, th {
     <td>Categoría</td>
 
     <td><a href="Eliminar_Producto.php" >Eliminar</a> </td>
+    <td><a href="Modificar_Producto.php" >Modificar</a> </td>
     
 
   </tr>
