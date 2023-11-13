@@ -9,6 +9,7 @@ $username = "mitiendaonline";
 $password = "Judith09";
 $bd="mitiendaonline";
 
+
 function soloLetras($name)
 {
     global $tieneNumeros; 
@@ -53,10 +54,10 @@ function visualizacionErrores($conn)
 
     if (count($errores) == 0) {
         echo "<br> No hubo ningún fallo 👍  ";
-        $nombre = " ' ".$_POST['nombre']." ' ";
+        $nombre = "'".$_POST['nombre']."'";
         $precio = $_POST['precio'];
-        $imagen = " ' ".$_FILES['imagen']['name']." ' ";
-        $categoria = " ' ".$_POST['categoria']." ' ";
+        $imagen = "'".$_FILES['imagen']['name']."'";
+        $categoria = "'".$_POST['categoria']."'";
 
         $sentencia= "INSERT INTO productos(Nombre,Precio,Imagen,Categoría) VALUES ($nombre,$precio,$imagen,$categoria) ";
         if($conn->query($sentencia)==true){
@@ -92,8 +93,23 @@ function subirFichero()
         return false;
     }
 
+function modificar($conn)
+  {
+    
+    $nombre = "'".$_POST['nombre']."'";
+    $precio = $_POST['precio'];
+    $imagen = "'".$_FILES['imagen']['name']."'";
+    $categoria = "'".$_POST['categoria']."'";
+    $id = $_POST['id'];
 
+    $sentencia= "UPDATE productos SET Nombre = $nombre, Precio = $precio, Imagen = $imagen, Categoría = $categoria WHERE id = $id ";
 
+    if($conn->query($sentencia)==true)
+                echo "<h2>Modificado correctamente</h2>";
+            else
+                echo "Fallo al modificar"; 
+}  
+    
 
 
 ?>
