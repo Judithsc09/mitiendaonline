@@ -46,9 +46,11 @@
      <ul>
         
         <li><a href="crearProducto.php">Crear producto</a></li>
+
         <li><a href="listado_producto.php">Consultar el listado de productos</a></li>
         <li><a href="Modificar_Producto.php">Modificar producto</a></li>
         <li><a href="Eliminar_Producto.php">Eliminar producto</a></li>
+
       
 
     </ul>
