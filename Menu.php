@@ -1,3 +1,11 @@
+<?php
+
+Require "comprobar.php";
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,8 +57,8 @@
 
         <li><a href="listado_producto.php">Consultar el listado de productos</a></li>
         <li><a href="Modificar_Producto.php">Modificar producto</a></li>
-        <li><a href="Eliminar_Producto.php">Eliminar producto</a></li>
-        <li><a href="form_login.php">Registrarse</a></li>
+        <li><a href="eliminarProducto.php">Eliminar producto</a></li>
+        <li><a href="cerrarSesion.php">Cerrar sesión</a></li>
 
       
 

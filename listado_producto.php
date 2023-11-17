@@ -1,5 +1,5 @@
 <?php
-
+Require "comprobar.php";
 $servername = "localhost";
 $username = "mitiendaonline";
 $password = "Judith09";

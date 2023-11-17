@@ -1,4 +1,5 @@
 <?php
+Require "comprobar.php";
 Require "validacion.php";
 $servername = "localhost";
 $username = "mitiendaonline";
